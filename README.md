@@ -1,4 +1,4 @@
-# UIImageView-FaceDetection
+# UIImageView+FaceDetection
 A simple UIImageView Extension
 
 ##Usage:
