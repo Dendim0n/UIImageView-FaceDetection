@@ -58,10 +58,10 @@ extension UIImageView {
                     faceViewBounds.size.width = faceViewBounds.size.width - faceViewBounds.origin.x
                     
                 }
-                let imageRef = self.image!.cgImage!.cropping(to: faceViewBounds)
-                let cutImage = UIImage.init(cgImage: imageRef!)
-                tmpArray.append(cutImage)
             }
+            let imageRef = self.image!.cgImage!.cropping(to: faceViewBounds)
+            let cutImage = UIImage.init(cgImage: imageRef!)
+            tmpArray.append(cutImage)
             
         }
         if !MarkOrCut {
@@ -69,9 +69,8 @@ extension UIImageView {
                 img1.size.height * img1.size.width > img2.size.height * img2.size.width
             }
             self.image = tmpArray[0]
-            return tmpArray
         }
-        return []
+        return tmpArray
     }
     
     
