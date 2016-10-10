@@ -9,6 +9,7 @@ Usage:
 
            true  -> Only Mark Face with NO CUTTING
            false -> Only Cut Face with NO MARKING
+           _If the picture has more than one faces, it will MARK ALL the faces or CUT the BIGGEST face_
 
 2.inset: the space between face and edges.
 For example:
