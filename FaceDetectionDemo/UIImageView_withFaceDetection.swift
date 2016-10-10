@@ -12,7 +12,7 @@ import CoreGraphics
 
 extension UIImageView {
     
-    func doDetectionAndResetImage(MarkOrCut:Bool,inset:UIEdgeInsets?) {
+    func doDetectionAndResetImage(MarkOrCut:Bool,inset:UIEdgeInsets?) -> Array<UIImage> {
         
         let accuracy = [CIDetectorAccuracy: CIDetectorAccuracyHigh]
         let faceDetector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: accuracy)
@@ -69,7 +69,9 @@ extension UIImageView {
                 img1.size.height * img1.size.width > img2.size.height * img2.size.width
             }
             self.image = tmpArray[0]
+            return tmpArray
         }
+        return []
     }
     
     
