@@ -3,7 +3,7 @@ A simple UIImageView Extension with Face Detection/Cutting and Extraction
 
 ##Usage:
 
-        imageView.doDetectionAndResetImage(MarkOrCut: false,inset: UIEdgeInsetsMake(50, 50, 50, 50))
+        imageView.doDetectionAndResetImage(type: .Cut,inset: UIEdgeInsetsMake(50, 50, 50, 50))
 
 _It will return an Array<UIImage> of face(s)_
 
