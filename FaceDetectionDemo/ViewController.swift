@@ -15,6 +15,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var tableView: UITableView!
 
     @IBOutlet weak var cutSwitch: UISwitch!
+    @IBOutlet weak var onlyDetectSwitch: UISwitch!
     
     var faceArr = Array<UIImage>()
     override func viewDidLoad() {
@@ -32,7 +33,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             subView.removeFromSuperview()
         }
         
-        faceArr = imageView.doDetectionAndResetImage(type:(cutSwitch.isOn ? .Cut : .Mark),inset: UIEdgeInsetsMake(5,5,5,5))
+        faceArr = imageView.doDetection(type:(cutSwitch.isOn ? .Cut : .Mark),inset: UIEdgeInsetsMake(5,5,5,5), detectOnly: onlyDetectSwitch.isOn)
         print(faceArr.count)
         tableView.reloadData()
     }

@@ -17,7 +17,7 @@ extension UIImageView {
         case Mark
     }
     
-    func doDetectionAndResetImage(type:ProcessType,inset:UIEdgeInsets?) -> Array<UIImage> {
+    func doDetection(type:ProcessType,inset:UIEdgeInsets?,detectOnly:Bool) -> Array<UIImage> {
         
         let accuracy = [CIDetectorAccuracy: CIDetectorAccuracyHigh]
         let faceDetector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: accuracy)
@@ -62,7 +62,9 @@ extension UIImageView {
                 faceBox.layer.borderColor = UIColor.red.cgColor
                 faceBox.backgroundColor = UIColor.clear
                 
-                self.addSubview(faceBox)
+                if detectOnly {
+                    self.addSubview(faceBox)
+                }
             }
             
         }
@@ -70,7 +72,9 @@ extension UIImageView {
             tmpArray.sort { (img1, img2) -> Bool in
                 img1.size.height * img1.size.width > img2.size.height * img2.size.width
             }
-            self.image = tmpArray[0]
+            if detectOnly {
+                self.image = tmpArray[0]
+            }
         }
         return tmpArray
     }
