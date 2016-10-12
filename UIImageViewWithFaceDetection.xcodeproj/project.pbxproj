@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		407135FC1DADF5B7006395AC /* testPic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 407135FB1DADF5B7006395AC /* testPic.jpg */; };
 		40CC8EDA1DAA39A0003ECB1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC8ED91DAA39A0003ECB1C /* AppDelegate.swift */; };
 		40CC8EDC1DAA39A0003ECB1C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC8EDB1DAA39A0003ECB1C /* ViewController.swift */; };
 		40CC8EDF1DAA39A0003ECB1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40CC8EDD1DAA39A0003ECB1C /* Main.storyboard */; };
 		40CC8EE11DAA39A0003ECB1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40CC8EE01DAA39A0003ECB1C /* Assets.xcassets */; };
 		40CC8EE41DAA39A0003ECB1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40CC8EE21DAA39A0003ECB1C /* LaunchScreen.storyboard */; };
 		40CC8EEC1DAA3A26003ECB1C /* UIImageView_withFaceDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CC8EEB1DAA3A26003ECB1C /* UIImageView_withFaceDetection.swift */; };
-		40CC8EEE1DAA3D86003ECB1C /* IMG_0063.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 40CC8EED1DAA3D86003ECB1C /* IMG_0063.JPG */; };
-		40CC8EF01DAA4938003ECB1C /* test_dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 40CC8EEF1DAA4938003ECB1C /* test_dog.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		407135FB1DADF5B7006395AC /* testPic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testPic.jpg; sourceTree = "<group>"; };
 		40CC8ED61DAA39A0003ECB1C /* UIImageViewWithFaceDetection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIImageViewWithFaceDetection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40CC8ED91DAA39A0003ECB1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40CC8EDB1DAA39A0003ECB1C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,8 +26,6 @@
 		40CC8EE31DAA39A0003ECB1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40CC8EE51DAA39A0003ECB1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40CC8EEB1DAA3A26003ECB1C /* UIImageView_withFaceDetection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView_withFaceDetection.swift; sourceTree = "<group>"; };
-		40CC8EED1DAA3D86003ECB1C /* IMG_0063.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0063.JPG; sourceTree = "<group>"; };
-		40CC8EEF1DAA4938003ECB1C /* test_dog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test_dog.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,12 +78,11 @@
 			children = (
 				40CC8ED91DAA39A0003ECB1C /* AppDelegate.swift */,
 				40CC8EDB1DAA39A0003ECB1C /* ViewController.swift */,
-				40CC8EEF1DAA4938003ECB1C /* test_dog.jpg */,
-				40CC8EED1DAA3D86003ECB1C /* IMG_0063.JPG */,
 				40CC8EDD1DAA39A0003ECB1C /* Main.storyboard */,
 				40CC8EE01DAA39A0003ECB1C /* Assets.xcassets */,
 				40CC8EE21DAA39A0003ECB1C /* LaunchScreen.storyboard */,
 				40CC8EE51DAA39A0003ECB1C /* Info.plist */,
+				407135FB1DADF5B7006395AC /* testPic.jpg */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -149,8 +146,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40CC8EF01DAA4938003ECB1C /* test_dog.jpg in Resources */,
-				40CC8EEE1DAA3D86003ECB1C /* IMG_0063.JPG in Resources */,
+				407135FC1DADF5B7006395AC /* testPic.jpg in Resources */,
 				40CC8EE41DAA39A0003ECB1C /* LaunchScreen.storyboard in Resources */,
 				40CC8EE11DAA39A0003ECB1C /* Assets.xcassets in Resources */,
 				40CC8EDF1DAA39A0003ECB1C /* Main.storyboard in Resources */,
@@ -328,6 +324,7 @@
 				40CC8EEA1DAA39A0003ECB1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -12,7 +12,12 @@ import CoreGraphics
 
 extension UIImageView {
     
-    func doDetectionAndResetImage(MarkOrCut:Bool,inset:UIEdgeInsets?) -> Array<UIImage> {
+    enum ProcessType {
+        case Cut
+        case Mark
+    }
+    
+    func doDetectionAndResetImage(type:ProcessType,inset:UIEdgeInsets?) -> Array<UIImage> {
         
         let accuracy = [CIDetectorAccuracy: CIDetectorAccuracyHigh]
         let faceDetector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: accuracy)
@@ -27,13 +32,26 @@ extension UIImageView {
             
             var faceViewBounds = face.bounds.applying(transform)
             
-            if MarkOrCut {
-                let viewSize = self.bounds.size
-                let scale = min(viewSize.width / (ciImageSize?.width)!,
-                                viewSize.height / (ciImageSize?.height)!)
-                let offsetX = (viewSize.width - (ciImageSize?.width)! * scale) / 2
-                let offsetY = (viewSize.height - (ciImageSize?.height)! * scale) / 2
-                
+            let viewSize = self.bounds.size
+            let scale = min(viewSize.width / (ciImageSize?.width)!,
+                            viewSize.height / (ciImageSize?.height)!)
+            let offsetX = (viewSize.width - (ciImageSize?.width)! * scale) / 2
+            let offsetY = (viewSize.height - (ciImageSize?.height)! * scale) / 2
+            
+            faceViewBounds.origin.x = max(0, faceViewBounds.origin.x - (inset?.left)!)
+            faceViewBounds.origin.y = max(0, faceViewBounds.origin.y - (inset?.top)!)
+            
+            faceViewBounds.size.height = min(faceViewBounds.origin.y + faceViewBounds.size.height + (inset?.bottom)! + (inset?.top)!,(ciImageSize?.height)!)
+            faceViewBounds.size.height = faceViewBounds.size.height - faceViewBounds.origin.y
+            
+            faceViewBounds.size.width = min(faceViewBounds.origin.x + faceViewBounds.size.width + (inset?.left)! + (inset?.right)!,(ciImageSize?.width)!)
+            faceViewBounds.size.width = faceViewBounds.size.width - faceViewBounds.origin.x
+            
+            let imageRef = self.image!.cgImage!.cropping(to: faceViewBounds)
+            let cutImage = UIImage.init(cgImage: imageRef!)
+            tmpArray.append(cutImage)
+            
+            if type == .Mark {
                 faceViewBounds = faceViewBounds.applying(CGAffineTransform(scaleX: scale, y: scale))
                 faceViewBounds.origin.x += offsetX
                 faceViewBounds.origin.y += offsetY
@@ -45,26 +63,10 @@ extension UIImageView {
                 faceBox.backgroundColor = UIColor.clear
                 
                 self.addSubview(faceBox)
-            } else {
-                if inset != nil {
-
-                    faceViewBounds.origin.x = max(0, faceViewBounds.origin.x - (inset?.left)!)
-                    faceViewBounds.origin.y = max(0, faceViewBounds.origin.y - (inset?.top)!)
-                    
-                    faceViewBounds.size.height = min(faceViewBounds.origin.y + faceViewBounds.size.height + (inset?.bottom)! + (inset?.top)!,(ciImageSize?.height)!)
-                    faceViewBounds.size.height = faceViewBounds.size.height - faceViewBounds.origin.y
-                    
-                    faceViewBounds.size.width = min(faceViewBounds.origin.x + faceViewBounds.size.width + (inset?.left)! + (inset?.right)!,(ciImageSize?.width)!)
-                    faceViewBounds.size.width = faceViewBounds.size.width - faceViewBounds.origin.x
-                    
-                }
             }
-            let imageRef = self.image!.cgImage!.cropping(to: faceViewBounds)
-            let cutImage = UIImage.init(cgImage: imageRef!)
-            tmpArray.append(cutImage)
             
         }
-        if !MarkOrCut {
+        if type == .Cut {
             tmpArray.sort { (img1, img2) -> Bool in
                 img1.size.height * img1.size.width > img2.size.height * img2.size.width
             }
