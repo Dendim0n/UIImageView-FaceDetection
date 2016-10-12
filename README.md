@@ -16,5 +16,5 @@ _If the picture has more than one faces, it will MARK ALL the faces or ONLY CUT 
 ###2.inset: the space between face and edges.
 For example:
 
-![image](example1.png)
 ![image](example2.png)
+![image](example1.png)
