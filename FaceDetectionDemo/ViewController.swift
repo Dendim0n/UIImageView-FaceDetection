@@ -33,7 +33,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             subView.removeFromSuperview()
         }
         
-        faceArr = imageView.doDetection(type:(cutSwitch.isOn ? .Cut : .Mark),inset: UIEdgeInsetsMake(5,5,5,5), detectOnly: onlyDetectSwitch.isOn)
+        faceArr = imageView.doDetection(type:(cutSwitch.isOn ? .cut : .mark),inset: UIEdgeInsetsMake(5,5,5,5), detectOnly: onlyDetectSwitch.isOn)
         print(faceArr.count)
         tableView.reloadData()
     }

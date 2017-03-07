@@ -13,8 +13,8 @@ import CoreGraphics
 extension UIImageView {
     
     enum ProcessType {
-        case Cut
-        case Mark
+        case cut
+        case mark
     }
     
     func doDetection(type:ProcessType,inset:UIEdgeInsets?,detectOnly:Bool) -> Array<UIImage> {
@@ -51,7 +51,7 @@ extension UIImageView {
             let cutImage = UIImage.init(cgImage: imageRef!)
             tmpArray.append(cutImage)
             
-            if type == .Mark {
+            if type == .mark {
                 faceViewBounds = faceViewBounds.applying(CGAffineTransform(scaleX: scale, y: scale))
                 faceViewBounds.origin.x += offsetX
                 faceViewBounds.origin.y += offsetY
@@ -68,7 +68,7 @@ extension UIImageView {
             }
             
         }
-        if type == .Cut {
+        if type == .cut {
             tmpArray.sort { (img1, img2) -> Bool in
                 img1.size.height * img1.size.width > img2.size.height * img2.size.width
             }
